@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 <!-- badges: end -->
 
-|   I estimate the causal effect of the U.S. EPA’s NOx Budget Trading Program (NBP) on air pollutant emissions. This project is a replication of the 2017 paper *"Defensive investments and the demand for air quality: Evidence from the NOx budget program."* by Deschênes, Greenstone and Shapiro (source and citation down below). Following the paper's methodlogy, I estimate the causal effects using a difference-in-differences and triple difference approach
+|   I estimate the causal effect of the U.S. EPA’s NOx Budget Trading Program (NBP) on air pollutant emissions. This project is a replication of the 2017 paper *"Defensive investments and the demand for air quality: Evidence from the NOx budget program."* by Deschênes, Greenstone and Shapiro (source and citation down below). Following the paper's methodology, I estimate the causal effects using a difference-in-differences and triple difference approach
 
 
 ```{r pkgs, echo=FALSE}

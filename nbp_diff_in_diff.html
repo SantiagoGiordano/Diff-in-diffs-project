@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="generator" content="quarto-0.9.238">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>The Effect of the EPA’s NOx Budget Trading Program (NBP)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+
+  <script src="nbp_diff_in_diff_files/libs/clipboard/clipboard.min.js"></script>
+  <script src="nbp_diff_in_diff_files/libs/quarto-html/quarto.js"></script>
+  <script src="nbp_diff_in_diff_files/libs/quarto-html/popper.min.js"></script>
+  <script src="nbp_diff_in_diff_files/libs/quarto-html/tippy.umd.min.js"></script>
+  <script src="nbp_diff_in_diff_files/libs/quarto-html/anchor.min.js"></script>
+  <link href="nbp_diff_in_diff_files/libs/quarto-html/tippy.css" rel="stylesheet">
+  <link id="quarto-text-highlighting-styles" href="nbp_diff_in_diff_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+  <script src="nbp_diff_in_diff_files/libs/bootstrap/bootstrap.min.js"></script>
+  <link href="nbp_diff_in_diff_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+  <link href="nbp_diff_in_diff_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body class="fullcontent">
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  
+</div>
+
+<main class="content" id="quarto-document-content">
+<header id="title-block-header" class="quarto-title-block default">
+
+
+<div class="quarto-title"><h1 class="title display-7">The Effect of the EPA’s NOx Budget Trading Program (NBP)</h1><p class="subtitle lead">Replicating a Differences in Differences Approach</p></div></header>
+<p>&nbsp;&nbsp;I estimate the causal effect of the U.S. EPA’s NOx Budget Trading Program (NBP) on air pollutant emissions. This project is a replication of the 2017 paper <em>“Defensive investments and the demand for air quality: Evidence from the NOx budget program.”</em> by Deschênes, Greenstone and Shapiro (source and citation down below). Following the paper’s methodology, I estimate the causal effects using a difference-in-differences and triple difference approach</p>
+<div class="cell">
+
+</div>
+<div class="cell">
+
+</div>
+<section id="what-was-the-nbp-pogram-and-what-are-the-main-variables-in-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="what-was-the-nbp-pogram-and-what-are-the-main-variables-in-the-data">What was the NBP pogram and what are the main variables in the data?</h2>
+<p>&nbsp;&nbsp;The NOx Budget Trading program (NBP), operated a cap-and-trade system for over 2,500 electricity generating units and industrial boilers in Eastern and Midwestern states between 2003 and 2008. The emissions market established by the program introduced three sources of emission variation. The first source, captured by the variable <code>post</code>, was the start of the program in 2003. The <code>nbp</code> dummy variable indicates if a state was part of the NBP in the 2003-2008 period. Since the market implemented by NBP only operated during the period between May 1 and September 30, it offered a third source of variation which is captured in the variable <code>summer</code>. In short, the program created an emissions market from 2003 to 2008 in certain states, and this market only operated during summer months.</p>
+</section>
+<section id="nox-emissions-in-states-participating-in-nbp" class="level2">
+<h2 class="anchored" data-anchor-id="nox-emissions-in-states-participating-in-nbp">NOx emissions in states participating in NBP</h2>
+<div class="cell">
+
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="nbp_diff_in_diff_files/figure-html/plot1-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="parallel-trends-assumption" class="level2">
+<h2 class="anchored" data-anchor-id="parallel-trends-assumption">Parallel Trends Assumption:</h2>
+<p>&nbsp;&nbsp;The assumption underlying graph replicated above is that, absent of treatment, NOx emissions in states subject to the NBP policy (i.e., the treatment group) would follow the same trend as emissions in states not subject to the program (i.e., the control group). The graphical pattern in the graph suggests this assumption, commonly referred to as the parallel trends assumption, would hold as emissions in both groups of states follow the same downward trend and have similar NOx emission levels prior to the program’s implementation.</p>
+</section>
+<section id="diff-in-diff-among-states-participating-in-nbp" class="level2">
+<h2 class="anchored" data-anchor-id="diff-in-diff-among-states-participating-in-nbp">Diff-in-diff among states participating in NBP</h2>
+<p>&nbsp;&nbsp;To run a difference-in-difference regression that examines the effect of the NBP on NOx emissions among states that participated in the program, we will use the the variable for emissions, <code>nox_emit</code>, as the dependent variable. For the independent variables, we use the dummy variables for whether it was the summer season (i.e., May 1 to September 30) and for whether the program had been implemented, as well as their interaction. The specification is as follows:</p>
+<p><span class="math inline">\(NOx\_emit_{it} \sim summer_t + post_i + summer_i*post_t + \epsilon_i\)</span></p>
+<div class="cell">
+
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Diff-in-Diff: Effect of NBP on NOx Emissions among Participating States
+===============================================
+                        Dependent variable:    
+                    ---------------------------
+                           NOx Emssions        
+-----------------------------------------------
+Summer                         0.034           
+                              (0.064)          
+                                               
+Post Implementation          -0.223***         
+                              (0.059)          
+                                               
+Interaction                  -0.373***         
+                              (0.077)          
+                                               
+Constant                     1.024***          
+                              (0.045)          
+                                               
+-----------------------------------------------
+Observations                  26,070           
+===============================================
+Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+</div>
+</div>
+<p>&nbsp;&nbsp;The coefficient of the interaction of the variables <code>summer</code> and <code>post</code> indicates the ‘difference-in-differences’ - that is to say the difference between the difference of the means in the summer months before and after the introduction of NBP and the difference of the winter season means before and after NBP. Specifically, the coefficient points to an average reduction of 373 thousand Tons in emissions during the summer seasons after the rollover of the NOx Budget Trading program.</p>
+</section>
+<section id="nox-emissions-in-states-not-participating-in-nbp" class="level2">
+<h2 class="anchored" data-anchor-id="nox-emissions-in-states-not-participating-in-nbp">NOx emissions in states not participating in NBP</h2>
+<div class="cell">
+
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="nbp_diff_in_diff_files/figure-html/plot2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="placebo-test" class="level2">
+<h2 class="anchored" data-anchor-id="placebo-test">Placebo Test</h2>
+<p>&nbsp;&nbsp;The graph above may seem unintuitive, since I plot emissions in non-participating states which we don’t assume will change with NBP’s introduction. It’s objective, however, is to run a placebo test for the parallel trends assumption previously discussed. The test allows us to see if emissions follow the same trends in both the summer and winter seasons when the program is not in place. If the placebo test shows equal trends in both seasons with no changes after program starts among these non-participating states, it supports the results that indicate causal links between NBP and any changes within participating states.</p>
+</section>
+<section id="diff-in-diff-among-non-participating-states" class="level2">
+<h2 class="anchored" data-anchor-id="diff-in-diff-among-non-participating-states">Diff-in-diff among non participating states</h2>
+<p>&nbsp;&nbsp;To run a difference-in-difference regression that examines the effect of the NBP on NOx emissions among non-participating states, we will employ the same the specification as in the previous diff-in-diff regression, only with data restricted to non-participating states this time.</p>
+<p><span class="math inline">\(NOx\_emit_{it} \sim summer_t + post_i + summer_i*post_t + \epsilon_i\)</span></p>
+<div class="cell">
+
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Diff-in-Diff: Effect of NBP on NOx Emissions among Non-Participating States
+===============================================
+                        Dependent variable:    
+                    ---------------------------
+                           NOx Emssions        
+-----------------------------------------------
+Summer                        0.084**          
+                              (0.035)          
+                                               
+Post Implementation          -0.102***         
+                              (0.032)          
+                                               
+Interaction                   -0.042           
+                              (0.047)          
+                                               
+Constant                     0.502***          
+                              (0.024)          
+                                               
+-----------------------------------------------
+Observations                  29,788           
+===============================================
+Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+</div>
+</div>
+<p>&nbsp;&nbsp;The coefficient of the interaction term indicates that a 40 thousand Ton fall in NOx emissions during the summer seasons among the non-participating states is associated with the implementation of NBP; however, this change is not statistically significant.</p>
+</section>
+<section id="triple-difference-regression" class="level2">
+<h2 class="anchored" data-anchor-id="triple-difference-regression">Triple-difference regression</h2>
+<p>&nbsp;&nbsp;To run a triple-difference regression that examines the effect of the NOx Budget Trading program we will again use <code>nox_emit</code> as the dependent variable and <code>nbp</code>, <code>summer</code> and <code>post</code> as the independent variables. We will regress the outcome variable on each of the independent variables, the pair interactions of <code>nbp</code> and<code>summer</code>, <code>nbp</code> and <code>post</code>, and <code>nbp</code> and <code>summer</code> as well as the triple interaction of all three. The specification is as follows:</p>
+<p><span class="math inline">\(NOx\_emit_{it} \sim nbp_i + post_{it} + summer_t + nbp_t*post_{it} + post_{it}*summer_t + nbp_t*summer_t + nbp_i*post_{it}*summer_t + \epsilon_i\)</span></p>
+<div class="cell">
+
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Diff-in-Diff: Effect of NBP on NOx Emissions among Non-Participating States
+===============================================
+                        Dependent variable:    
+                    ---------------------------
+                           NOx Emssions        
+-----------------------------------------------
+NBP Participation            0.522***          
+                                               
+                                               
+Post Implementation          -0.102***         
+                              (0.032)          
+                                               
+Summer                        0.084*           
+                              (0.035)          
+                                               
+NBP*Post                      -0.121           
+                                               
+                                               
+Post*Summer                   -0.042           
+                                               
+                                               
+NBP*Summer                    -0.050           
+                                               
+                                               
+Triple Interaction            -0.331           
+                                               
+                                               
+Constant                     0.502***          
+                              (0.024)          
+                                               
+-----------------------------------------------
+Observations                  55,858           
+===============================================
+Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+</div>
+</div>
+<p>&nbsp;&nbsp;The coefficient of the triple interaction term indicates there was approximately a 33% decrease in NOx emissions during the summer season among states that participated in the program. This coefficient is the difference between the two coefficients discussed previously - i.e., the coefficients for the interaction terms of the participating states diff-in-diff and the non-participating states diff-in-diff.</p>
+</section>
+<section id="overview-of-results" class="level2">
+<h2 class="anchored" data-anchor-id="overview-of-results">Overview of Results:</h2>
+<p>&nbsp;&nbsp;The NOx Budget Trading Program established a cap-and-trade market on NOx emissions throughout counties of certain states, predominantly in the eastern United States, during the 2003 to 2007 period. Within this time frame, the policy was specifically in place during a ‘summer’ season that lasted from May until the end of September. A difference-in-differences regression of participating states, showed that after NBP’s implementation there was a reduction of over 370 thousand Tons in the average NOx emissions during the summer season. When implementing a triple-difference approach, where we account for the changes in the average emissions in non-participating states, we found a smaller reduction but nevertheless an impactful one. Specifically, the results indicated that NBP lead to a 330,000 Ton reduction, on average, per year of NOx emissions during the summer seasons. Globally, throughout the four and half years of NBP’s implementation (mid 2003 until 2008) it reduced close ro 1.5 million Tons of NOx emissions.</p>
+</section>
+<section id="source" class="level2">
+<h2 class="anchored" data-anchor-id="source">Source:</h2>
+<p><a href="http://joseph-s-shapiro.com/research/NOx_Defenses_DGS.pdf">Deschênes, Olivier, Michael Greenstone, and Joseph S. Shapiro. “Defensive investments and the | | demand for air quality: Evidence from the NOx budget program.” American Economic Review 107, no. | 10 (2017): 2958-89</a></p>
+
+</section>
+</main>
+<!-- /main column -->
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    setTimeout(function() {
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+</body></html>

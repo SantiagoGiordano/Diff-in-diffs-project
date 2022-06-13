@@ -11,7 +11,7 @@ Program (NBP) on air pollutant emissions. This project is a replication
 of the 2017 paper *“Defensive investments and the demand for air
 quality: Evidence from the NOx budget program.”* by Deschênes,
 Greenstone and Shapiro (source and citation down below). Following the
-paper’s methodlogy, I estimate the causal effects using a
+paper’s methodology, I estimate the causal effects using a
 difference-in-differences and triple difference approach
 
 ## What was the NBP pogram and what are the main variables in the data?
