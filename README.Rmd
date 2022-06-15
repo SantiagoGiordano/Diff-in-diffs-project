@@ -5,7 +5,7 @@ output: github_document
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r, include = FALSE}
-knitr::opts_chunk$set(collapse = TRUE) #, comment = "#>"
+knitr::opts_chunk$set(collapse = TRUE, comment = "") #, comment = ""
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
@@ -83,7 +83,8 @@ stargazer::stargazer(did_yes_nbp,se = list(did_yes_se),
                      dep.var.labels = c("NOx Emssions"), 
                      covariate.labels = c("Summer", "Post Implementation", "Interaction"),
                      # keep = c("Constant"), 
-                     omit.stat = c("rsq", "adj.rsq", "ser", "f"), type = 'html', 
+                     omit.stat = c("rsq", "adj.rsq", "ser", "f"), 
+                     type = "text", out.header = TRUE, 
         title = "Diff-in-Diff: Effect of NBP on NOx Emissions among Participating States")
 ```
 
@@ -141,7 +142,7 @@ did_no_se <- sqrt(diag(vcovHC(did_no_nbp, type = "HC1")))
 stargazer::stargazer(did_no_nbp,se = list(did_no_se), 
                      dep.var.labels = c("NOx Emssions"), 
                      covariate.labels = c("Summer", "Post Implementation", "Interaction"), 
-                     omit.stat = c("rsq", "adj.rsq", "ser", "f"), type = 'html', 
+                     omit.stat = c("rsq", "adj.rsq", "ser", "f"), type = 'text', 
     title = "Diff-in-Diff: Effect of NBP on NOx Emissions among Non-Participating States")
 ```
 
@@ -170,7 +171,7 @@ stargazer::stargazer(triple_diff, se = list(did_no_se),
                                        "NBP*Post", "Post*Summer", "NBP*Summer",
                                        "Triple Interaction"),
                  # keep = c("Constant"),
-                  omit.stat = c("rsq", "adj.rsq", "ser", "f"), type = 'html', 
+                  omit.stat = c("rsq", "adj.rsq", "ser", "f"), type = "text", 
       title = "Diff-in-Diff: Effect of NBP on NOx Emissions among Non-Participating States")
 ```
 
