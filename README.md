@@ -57,28 +57,25 @@ interaction. The specification is as follows:
 ![NOx\\\_emit\_{it} \\sim summer_t + post_i + summer_i\*post_t + \\epsilon_i](https://latex.codecogs.com/png.image?%5Cdpi%7B110%7D&space;%5Cbg_white&space;NOx%5C_emit_%7Bit%7D%20%5Csim%20summer_t%20%2B%20post_i%20%2B%20summer_i%2Apost_t%20%2B%20%5Cepsilon_i "NOx\_emit_{it} \sim summer_t + post_i + summer_i*post_t + \epsilon_i")
 
     ## 
-    ## Diff-in-Diff: Effect of NBP on NOx Emissions among Participating States
-    ## ===============================================
-    ##                         Dependent variable:    
-    ##                     ---------------------------
-    ##                            NOx Emssions        
-    ## -----------------------------------------------
-    ## Summer                         0.034           
-    ##                               (0.064)          
-    ##                                                
-    ## Post Implementation          -0.223***         
-    ##                               (0.059)          
-    ##                                                
-    ## Interaction                  -0.373***         
-    ##                               (0.077)          
-    ##                                                
-    ## Constant                     1.024***          
-    ##                               (0.045)          
-    ##                                                
-    ## -----------------------------------------------
-    ## Observations                  26,070           
-    ## ===============================================
-    ## Note:               *p<0.1; **p<0.05; ***p<0.01
+    ## <table style="text-align:center"><caption><strong>Diff-in-Diff: Effect of NBP on NOx Emissions among Participating States</strong></caption>
+    ## <tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td><em>Dependent variable:</em></td></tr>
+    ## <tr><td></td><td colspan="1" style="border-bottom: 1px solid black"></td></tr>
+    ## <tr><td style="text-align:left"></td><td>NOx Emssions</td></tr>
+    ## <tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Summer</td><td>0.034</td></tr>
+    ## <tr><td style="text-align:left"></td><td>(0.064)</td></tr>
+    ## <tr><td style="text-align:left"></td><td></td></tr>
+    ## <tr><td style="text-align:left">Post Implementation</td><td>-0.223<sup>***</sup></td></tr>
+    ## <tr><td style="text-align:left"></td><td>(0.059)</td></tr>
+    ## <tr><td style="text-align:left"></td><td></td></tr>
+    ## <tr><td style="text-align:left">Interaction</td><td>-0.373<sup>***</sup></td></tr>
+    ## <tr><td style="text-align:left"></td><td>(0.077)</td></tr>
+    ## <tr><td style="text-align:left"></td><td></td></tr>
+    ## <tr><td style="text-align:left">Constant</td><td>1.024<sup>***</sup></td></tr>
+    ## <tr><td style="text-align:left"></td><td>(0.045)</td></tr>
+    ## <tr><td style="text-align:left"></td><td></td></tr>
+    ## <tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Observations</td><td>26,070</td></tr>
+    ## <tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
+    ## </table>
 
   The coefficient of the interaction of the variables `summer` and
 `post` indicates the ‘difference-in-differences’ - that is to say the
@@ -115,28 +112,25 @@ time.
 ![NOx\\\_emit\_{it} \\sim summer_t + post_i + summer_i\*post_t + \\epsilon_i](https://latex.codecogs.com/png.image?%5Cdpi%7B110%7D&space;%5Cbg_white&space;NOx%5C_emit_%7Bit%7D%20%5Csim%20summer_t%20%2B%20post_i%20%2B%20summer_i%2Apost_t%20%2B%20%5Cepsilon_i "NOx\_emit_{it} \sim summer_t + post_i + summer_i*post_t + \epsilon_i")
 
     ## 
-    ## Diff-in-Diff: Effect of NBP on NOx Emissions among Non-Participating States
-    ## ===============================================
-    ##                         Dependent variable:    
-    ##                     ---------------------------
-    ##                            NOx Emssions        
-    ## -----------------------------------------------
-    ## Summer                        0.084**          
-    ##                               (0.035)          
-    ##                                                
-    ## Post Implementation          -0.102***         
-    ##                               (0.032)          
-    ##                                                
-    ## Interaction                   -0.042           
-    ##                               (0.047)          
-    ##                                                
-    ## Constant                     0.502***          
-    ##                               (0.024)          
-    ##                                                
-    ## -----------------------------------------------
-    ## Observations                  29,788           
-    ## ===============================================
-    ## Note:               *p<0.1; **p<0.05; ***p<0.01
+    ## <table style="text-align:center"><caption><strong>Diff-in-Diff: Effect of NBP on NOx Emissions among Non-Participating States</strong></caption>
+    ## <tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td><em>Dependent variable:</em></td></tr>
+    ## <tr><td></td><td colspan="1" style="border-bottom: 1px solid black"></td></tr>
+    ## <tr><td style="text-align:left"></td><td>NOx Emssions</td></tr>
+    ## <tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Summer</td><td>0.084<sup>**</sup></td></tr>
+    ## <tr><td style="text-align:left"></td><td>(0.035)</td></tr>
+    ## <tr><td style="text-align:left"></td><td></td></tr>
+    ## <tr><td style="text-align:left">Post Implementation</td><td>-0.102<sup>***</sup></td></tr>
+    ## <tr><td style="text-align:left"></td><td>(0.032)</td></tr>
+    ## <tr><td style="text-align:left"></td><td></td></tr>
+    ## <tr><td style="text-align:left">Interaction</td><td>-0.042</td></tr>
+    ## <tr><td style="text-align:left"></td><td>(0.047)</td></tr>
+    ## <tr><td style="text-align:left"></td><td></td></tr>
+    ## <tr><td style="text-align:left">Constant</td><td>0.502<sup>***</sup></td></tr>
+    ## <tr><td style="text-align:left"></td><td>(0.024)</td></tr>
+    ## <tr><td style="text-align:left"></td><td></td></tr>
+    ## <tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Observations</td><td>29,788</td></tr>
+    ## <tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
+    ## </table>
 
   The coefficient of the interaction term indicates that a 40 thousand
 Ton fall in NOx emissions during the summer seasons among the
@@ -156,40 +150,37 @@ specification is as follows:
 ![NOx\\\_emit\_{it} \\sim nbp_i + post\_{it} + summer_t + nbp_t\*post\_{it} + post\_{it}\*summer_t + nbp_t\*summer_t + nbp_i\*post\_{it}\*summer_t + \\epsilon_i](https://latex.codecogs.com/png.image?%5Cdpi%7B110%7D&space;%5Cbg_white&space;NOx%5C_emit_%7Bit%7D%20%5Csim%20nbp_i%20%2B%20post_%7Bit%7D%20%2B%20summer_t%20%2B%20nbp_t%2Apost_%7Bit%7D%20%2B%20post_%7Bit%7D%2Asummer_t%20%2B%20nbp_t%2Asummer_t%20%2B%20nbp_i%2Apost_%7Bit%7D%2Asummer_t%20%2B%20%5Cepsilon_i "NOx\_emit_{it} \sim nbp_i + post_{it} + summer_t + nbp_t*post_{it} + post_{it}*summer_t + nbp_t*summer_t + nbp_i*post_{it}*summer_t + \epsilon_i")
 
     ## 
-    ## Diff-in-Diff: Effect of NBP on NOx Emissions among Non-Participating States
-    ## ===============================================
-    ##                         Dependent variable:    
-    ##                     ---------------------------
-    ##                            NOx Emssions        
-    ## -----------------------------------------------
-    ## NBP Participation            0.522***          
-    ##                                                
-    ##                                                
-    ## Post Implementation          -0.102***         
-    ##                               (0.032)          
-    ##                                                
-    ## Summer                        0.084*           
-    ##                               (0.035)          
-    ##                                                
-    ## NBP*Post                      -0.121           
-    ##                                                
-    ##                                                
-    ## Post*Summer                   -0.042           
-    ##                                                
-    ##                                                
-    ## NBP*Summer                    -0.050           
-    ##                                                
-    ##                                                
-    ## Triple Interaction            -0.331           
-    ##                                                
-    ##                                                
-    ## Constant                     0.502***          
-    ##                               (0.024)          
-    ##                                                
-    ## -----------------------------------------------
-    ## Observations                  55,858           
-    ## ===============================================
-    ## Note:               *p<0.1; **p<0.05; ***p<0.01
+    ## <table style="text-align:center"><caption><strong>Diff-in-Diff: Effect of NBP on NOx Emissions among Non-Participating States</strong></caption>
+    ## <tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td><em>Dependent variable:</em></td></tr>
+    ## <tr><td></td><td colspan="1" style="border-bottom: 1px solid black"></td></tr>
+    ## <tr><td style="text-align:left"></td><td>NOx Emssions</td></tr>
+    ## <tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">NBP Participation</td><td>0.522<sup>***</sup></td></tr>
+    ## <tr><td style="text-align:left"></td><td></td></tr>
+    ## <tr><td style="text-align:left"></td><td></td></tr>
+    ## <tr><td style="text-align:left">Post Implementation</td><td>-0.102<sup>***</sup></td></tr>
+    ## <tr><td style="text-align:left"></td><td>(0.032)</td></tr>
+    ## <tr><td style="text-align:left"></td><td></td></tr>
+    ## <tr><td style="text-align:left">Summer</td><td>0.084<sup>*</sup></td></tr>
+    ## <tr><td style="text-align:left"></td><td>(0.035)</td></tr>
+    ## <tr><td style="text-align:left"></td><td></td></tr>
+    ## <tr><td style="text-align:left">NBP*Post</td><td>-0.121</td></tr>
+    ## <tr><td style="text-align:left"></td><td></td></tr>
+    ## <tr><td style="text-align:left"></td><td></td></tr>
+    ## <tr><td style="text-align:left">Post*Summer</td><td>-0.042</td></tr>
+    ## <tr><td style="text-align:left"></td><td></td></tr>
+    ## <tr><td style="text-align:left"></td><td></td></tr>
+    ## <tr><td style="text-align:left">NBP*Summer</td><td>-0.050</td></tr>
+    ## <tr><td style="text-align:left"></td><td></td></tr>
+    ## <tr><td style="text-align:left"></td><td></td></tr>
+    ## <tr><td style="text-align:left">Triple Interaction</td><td>-0.331</td></tr>
+    ## <tr><td style="text-align:left"></td><td></td></tr>
+    ## <tr><td style="text-align:left"></td><td></td></tr>
+    ## <tr><td style="text-align:left">Constant</td><td>0.502<sup>***</sup></td></tr>
+    ## <tr><td style="text-align:left"></td><td>(0.024)</td></tr>
+    ## <tr><td style="text-align:left"></td><td></td></tr>
+    ## <tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Observations</td><td>55,858</td></tr>
+    ## <tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
+    ## </table>
 
   The coefficient of the triple interaction term indicates there was
 approximately a 33% decrease in NOx emissions during the summer season
